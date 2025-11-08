@@ -138,20 +138,42 @@ function initializeContentTransitions() {
 function handleBackgroundImages() {
     document.querySelectorAll('.cover-bg').forEach(element => {
         if (!element.dataset.bgInitialized) {
-            const bgUrl = getComputedStyle(element).backgroundImage;
-            if (bgUrl !== 'none') {
+            // Prefer data-bg attribute (used in markup) then fallback to computed style
+            const dataBg = element.dataset.bg;
+            let bgUrl = '';
+
+            if (dataBg) {
+                bgUrl = dataBg;
+                // Apply as inline background-image so computed styles work later
+                element.style.backgroundImage = `url("${bgUrl}")`;
+            } else {
+                const computed = getComputedStyle(element).backgroundImage;
+                if (computed && computed !== 'none') {
+                    bgUrl = computed.slice(4, -1).replace(/["']/g, '');
+                }
+            }
+
+            if (bgUrl) {
                 // Create placeholder
                 const placeholder = document.createElement('div');
                 placeholder.className = 'bg-placeholder';
+                // Mirror the same background so blur shows the image while loading
+                placeholder.style.backgroundImage = `url("${bgUrl}")`;
                 element.insertBefore(placeholder, element.firstChild);
 
-                // Load image
+                // Preload image
                 const img = new Image();
                 img.onload = () => {
+                    // Fade placeholder out and remove when loaded
                     placeholder.style.opacity = '0';
                     setTimeout(() => placeholder.remove(), 500);
                 };
-                img.src = bgUrl.slice(4, -1).replace(/["']/g, '');
+                img.onerror = () => {
+                    // If loading fails, remove the placeholder after a short delay
+                    placeholder.style.opacity = '0';
+                    setTimeout(() => placeholder.remove(), 500);
+                };
+                img.src = bgUrl;
             }
             element.dataset.bgInitialized = 'true';
         }
