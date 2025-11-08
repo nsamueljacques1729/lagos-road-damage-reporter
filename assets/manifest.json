@@ -1,0 +1,9 @@
+{
+  "name": "Lagos Traffic Reporter",
+  "short_name": "LTR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111418",
+  "icons": []
+}

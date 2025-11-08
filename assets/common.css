@@ -1,8 +1,25 @@
 /* Common styles shared across pages */
 
 /* Base styles */
+:root {
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-color: #111418;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --theme-color: #ffffff;
+  }
+}
+
 body { 
-  font-family: Inter, "Noto Sans", sans-serif; 
+  font-family: Inter, "Noto Sans", sans-serif;
+  background-color: var(--theme-color);
 }
 
 /* Background image helper */
