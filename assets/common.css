@@ -1,0 +1,61 @@
+/* Common styles shared across pages */
+
+/* Base styles */
+body { 
+  font-family: Inter, "Noto Sans", sans-serif; 
+}
+
+/* Background image helper */
+.cover-bg { 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+/* Page transitions */
+.screen { 
+  opacity: 0; 
+  transform: translateY(8px); 
+  transition: opacity .36s ease, transform .36s ease; 
+}
+
+.screen.active { 
+  opacity: 1; 
+  transform: translateY(0); 
+  pointer-events: auto; 
+}
+
+.screen.exiting { 
+  opacity: 0; 
+  transform: translateY(-8px); 
+  transition-duration: .28s; 
+  pointer-events: none; 
+}
+
+/* Navigation */
+.nav-link {
+  color: #9cabba;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link.active {
+  color: white;
+}
+
+/* Helper classes */
+.nav-icon {
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-shadow { 
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px; 
+}

@@ -1,0 +1,113 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Report Issue | Lagos Traffic Reporter</title>
+    <meta name="description" content="Report road conditions, accidents, or other traffic issues in Lagos">
+    <meta name="theme-color" content="#111418">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="assets/common.css">
+    <script src="assets/common.js"></script>
+  </head>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var screen = document.querySelector('main') || document.querySelector('div[role="main"]') || document.querySelector('body > div');
+      if(!screen) return;
+      screen.classList.add('screen');
+      requestAnimationFrame(function(){ screen.classList.add('active'); });
+      document.querySelectorAll('a[href]').forEach(function(a){
+        var href = a.getAttribute('href');
+        if(!href) return;
+        if(href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+        var isInternal = href.endsWith('.html') || (!href.includes('://') && !href.startsWith('http'));
+        if(!isInternal) return;
+        a.addEventListener('click', function(e){ e.preventDefault(); screen.classList.remove('active'); screen.classList.add('exiting'); setTimeout(function(){ window.location = href; }, 260); });
+      });
+    });
+  </script>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-[#111418] dark justify-between group/design-root overflow-x-hidden"
+    >
+      <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111418] dark justify-between group/design-root overflow-x-hidden">
+            </svg>
+          </div>
+          <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Report</h2>
+        </div>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Road Status</h2>
+        <div class="flex flex-wrap gap-3 p-4">
+          <label
+            class="text-sm font-medium leading-normal flex items-center justify-center rounded-lg border border-[#3b4754] px-4 h-11 text-white has-[:checked]:border-[3px] has-[:checked]:px-3.5 has-[:checked]:border-[#0d80f2] relative cursor-pointer"
+          >
+            Perfect
+            <input type="radio" class="invisible absolute" name="386064ab-0c72-42d9-9ca7-d6352d94804c" />
+          </label>
+          <label
+            class="text-sm font-medium leading-normal flex items-center justify-center rounded-lg border border-[#3b4754] px-4 h-11 text-white has-[:checked]:border-[3px] has-[:checked]:px-3.5 has-[:checked]:border-[#0d80f2] relative cursor-pointer"
+          >
+            Under Construction
+            <input type="radio" class="invisible absolute" name="386064ab-0c72-42d9-9ca7-d6352d94804c" />
+          </label>
+          <label
+            class="text-sm font-medium leading-normal flex items-center justify-center rounded-lg border border-[#3b4754] px-4 h-11 text-white has-[:checked]:border-[3px] has-[:checked]:px-3.5 has-[:checked]:border-[#0d80f2] relative cursor-pointer"
+          >
+            Bad
+            <input type="radio" class="invisible absolute" name="386064ab-0c72-42d9-9ca7-d6352d94804c" />
+          </label>
+          <label
+            class="text-sm font-medium leading-normal flex items-center justify-center rounded-lg border border-[#3b4754] px-4 h-11 text-white has-[:checked]:border-[3px] has-[:checked]:px-3.5 has-[:checked]:border-[#0d80f2] relative cursor-pointer"
+          >
+            Congested
+            <input type="radio" class="invisible absolute" name="386064ab-0c72-42d9-9ca7-d6352d94804c" />
+          </label>
+        </div>
+        <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+          <label class="flex flex-col min-w-40 flex-1">
+            <textarea
+              placeholder="Add comments"
+              class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#283039] focus:border-none min-h-36 placeholder:text-[#9cabba] p-4 text-base font-normal leading-normal"
+            ></textarea>
+          </label>
+        </div>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Add Photos</h2>
+        <div class="flex flex-col p-4">
+          <div class="flex flex-col items-center gap-6 rounded-lg border-2 border-dashed border-[#3b4754] px-6 py-14">
+            <div class="flex max-w-[480px] flex-col items-center gap-2">
+              <p class="text-white text-lg font-bold leading-tight tracking-[-0.015em] max-w-[480px] text-center">Add Photos</p>
+              <p class="text-white text-sm font-normal leading-normal max-w-[480px] text-center">Add photos to help other drivers understand the situation.</p>
+            </div>
+            <button
+              aria-label="Upload photos"
+              title="Upload photos"
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#283039] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Upload</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex px-4 py-3">
+          <button
+            aria-label="Submit report"
+            title="Submit report"
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 flex-1 bg-[#0d80f2] text-white text-base font-bold leading-normal tracking-[0.015em]"
+          >
+            <span class="truncate">Submit Report</span>
+          </button>
+        </div>
+        <div class="h-5 bg-[#111418]"></div>
+      </div>
+    </div>
+  </body>
+</html>

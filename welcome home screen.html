@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Oswald%3Awght%40400%3B500%3B700&amp;family=Roboto+Condensed%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Lagos Traffic Reporter</title>
+<link href="assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="stylesheet" href="assets/common.css">
+<script src="assets/common.js"></script>
+    <style type="text/tailwindcss">
+      :root {
+        /* New cool & welcoming palette */
+        --bg-dark: #071226; /* deep navy */
+        --charcoal: #0b1622; /* slightly lighter section background */
+        --accent: #06b6d4; /* teal/cyan for actions */
+        --accent-warm: #ffb86b; /* warm peach for friendly emphasis */
+        --muted: #9fb8c6; /* supportive muted text */
+        --text-on-accent: #071226;
+      }
+    </style>
+    <style>
+      /* Simple entrance animations for a smooth feel */
+      @media (prefers-reduced-motion: reduce) {
+        .animate-fade-in, .animate-slide-up { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+      }
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in { animation: fade-in 560ms cubic-bezier(.22,.9,.28,1) both; }
+      @keyframes slide-up {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-slide-up { animation: slide-up 420ms cubic-bezier(.22,.9,.28,1) both; }
+      body { background-color: var(--bg-dark); min-height: max(884px, 100dvh); font-family: 'Oswald', sans-serif; }
+
+      /* Centralized hero helpers (avoid inline styles) */
+      .hero-bg { background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuCWHClu4DxEtOEfTDEnsqctiGpMYuzTCat9p7WiFL1mvJlj7wV9827mmHKXGKU98_Ryh4jsm-q8pegmMx3QC3YJqQfbtr6marNWQ1og_ZZ8GF4OcOoyaGp6RIdWBfysTYvmmnrIeZPV7OV7QG7CKi7w3_RB7eWgTvrYE1sPC4nD-VmvHkblcRTgrwrAlofxVAQTilaDKPD54bXolJbEHR8AHMKhSPZf6mGahvKe5m-SGfNH2hOMsDlz4Gaj0h0lGJlKHq5g_UQAHx"); background-size: cover; background-position: center; }
+      .hero-gradient { background: linear-gradient(to top, var(--bg-dark) 0%, rgba(6,182,212,0.10) 36%, transparent 100%); }
+    </style>
+  </head>
+<body>
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-[var(--bg-dark)] justify-between group/design-root overflow-x-hidden">
+<div class="flex flex-col h-full">
+<div class="relative w-full overflow-hidden flex-grow min-h-[50vh] flex items-center justify-center">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover absolute inset-0 hero-bg"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative z-10 text-white p-4 text-center animate-fade-in">
+  <h1 class="text-[40px] font-bold leading-tight uppercase text-[var(--accent)] drop-shadow-lg mb-2">Damage Road Alerts</h1>
+  <p class="text-xl font-medium leading-tight text-[var(--accent-warm)] drop-shadow-lg">Lagos — Live Damage & Safety Alerts</p>
+</div>
+</div>
+<main class="px-4 py-6 bg-[var(--charcoal)]">
+<h2 class="text-[var(--accent)] tracking-tight text-[32px] font-bold leading-tight text-center pb-2 uppercase animate-slide-up">
+            Avoid Delays, Stay Safe
+          </h2>
+<p class="text-white text-base font-normal leading-normal pb-6 text-center tracking-wide animate-slide-up">
+            Get <span class="text-[var(--accent-warm)] font-bold">live hazard updates</span> and safer route suggestions across Lagos. Plan better, arrive safer.
+          </p>
+<div class="flex justify-center">
+  <div class="flex w-full max-w-[480px] gap-4 flex-col items-stretch">
+    <a href="map dashboard.html" aria-label="Start using app" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-[var(--accent)] text-[var(--text-on-accent)] text-lg font-bold leading-normal tracking-wider w-full uppercase transition-transform hover:scale-[1.025] no-underline">
+      <span class="truncate">Start Now</span>
+    </a>
+    <a href="map dashboard.html" aria-label="Sign in to account" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-transparent border border-[var(--accent-warm)] text-white text-lg font-bold leading-normal tracking-wider w-full uppercase transition-transform hover:scale-[1.02] no-underline">
+      <span class="truncate">I Have An Account</span>
+    </a>
+  </div>
+</div>
+</main>
+</div>
+<div class="pb-5 pt-3 bg-[var(--charcoal)]">
+<p class="text-white/60 text-xs font-normal leading-normal px-4 text-center tracking-wide">By continuing, you agree to our Terms of Service and Privacy Policy.</p>
+</div>
+</div>
+
+</body></html>

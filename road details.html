@@ -1,0 +1,174 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      /* Centralized font for this app */
+      body { font-family: Inter, "Noto Sans", sans-serif; }
+      .cover-bg { background-size: cover; background-position: center; background-repeat: no-repeat; }
+    </style>
+    <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('[data-bg]').forEach(function(el){var u=el.getAttribute('data-bg'); if(u) el.style.backgroundImage='url(' + u + ')';});});</script>
+    <!-- Page transitions: entrance + exit animations and simple internal-link router -->
+    <style>
+      .screen { opacity: 0; transform: translateY(8px); transition: opacity .36s ease, transform .36s ease; }
+      .screen.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+      .screen.exiting { opacity: 0; transform: translateY(-8px); transition-duration: .28s; pointer-events: none; }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        var screen = document.querySelector('main') || document.querySelector('div[role="main"]') || document.querySelector('body > div');
+        if(!screen) return;
+        screen.classList.add('screen');
+        requestAnimationFrame(function(){ screen.classList.add('active'); });
+        document.querySelectorAll('a[href]').forEach(function(a){
+          var href = a.getAttribute('href');
+          if(!href) return;
+          if(href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+          var isInternal = href.endsWith('.html') || (!href.includes('://') && !href.startsWith('http'));
+          if(!isInternal) return;
+          a.addEventListener('click', function(e){ e.preventDefault(); screen.classList.remove('active'); screen.classList.add('exiting'); setTimeout(function(){ window.location = href; }, 260); });
+        });
+      });
+    </script>
+  </head>
+        <div class="flex px-4 py-3">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg object-cover cover-bg" data-bg="https://lh3.googleusercontent.com/aida-public/AB6AXuAevgvMXb2Y4vDsFuU_Nf-gO87NJTj3bTnQt_i-FAevzVfaffdYQZKVMidhxjWNl13kqZirPwFnOVknDWK8aA1OKSH1fOwpjlXJsFh2i99c79gUCoSfNX9VVSzipVcG_0EM-9P1X1uV-JSuhqMJkQuSzxXNsxTToKQt4wQHKwkAVo7uYNtzN6nLjMmpyDkHMCbMYgLKzYstX6CL_YTQBZ_vIifwjNBh9xL9mQTPPeErVOUeK4NMREL0dh06mpcZeaPMMdyP2B-cZli0"></div>
+        </div>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Road Conditions</h2>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2">
+          <div class="text-white flex items-center justify-center rounded-lg bg-[#283039] shrink-0 size-12" data-icon="TrafficCone" data-size="24px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M232,208H213.69L153.42,34.75A16,16,0,0,0,138.31,24H117.69a16,16,0,0,0-15.11,10.74L42.31,208H24a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16ZM95.43,104h65.14l16.7,48H78.73Zm22.26-64h20.62L155,88H101ZM73.17,168H182.83l13.92,40H59.25Z"
+              ></path>
+            </svg>
+          </div>
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Heavy Traffic</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">Reported 2 hours ago</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4 px-4 py-2 py-2">
+          <div class="flex items-center justify-center gap-2 px-3 py-2">
+            <div class="text-[#9cabba]" data-icon="ThumbsUp" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#9cabba] text-[13px] font-bold leading-normal tracking-[0.015em]">12</p>
+          </div>
+          <div class="flex items-center justify-center gap-2 px-3 py-2">
+            <div class="text-[#9cabba]" data-icon="ThumbsDown" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M239.82,157l-12-96A24,24,0,0,0,204,40H32A16,16,0,0,0,16,56v88a16,16,0,0,0,16,16H75.06l37.78,75.58A8,8,0,0,0,120,240a40,40,0,0,0,40-40V184h56a24,24,0,0,0,23.82-27ZM72,144H32V56H72Zm150,21.29a7.88,7.88,0,0,1-6,2.71H152a8,8,0,0,0-8,8v24a24,24,0,0,1-19.29,23.54L88,150.11V56H204a8,8,0,0,1,7.94,7l12,96A7.87,7.87,0,0,1,222,165.29Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#9cabba] text-[13px] font-bold leading-normal tracking-[0.015em]">3</p>
+          </div>
+        </div>
+        <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">Traffic is backed up for several kilometers due to an accident. Expect significant delays.</p>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">User Reports</h2>
+        <div class="flex w-full flex-row items-start justify-start gap-3 p-4">
+          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0 cover-bg" data-bg="https://lh3.googleusercontent.com/aida-public/AB6AXuDzPLO5Zb6ZH74G1O5-ZkRUgck1G9LHdSpdRbJxI1p52S0aOeYgFJ0JAvWRLnDvLeEOHo7t0Y27v6zOKoQyjoAaW8FMPx0xSEPmBSxNwEARGMIzXHY5kw8eEeJbMyrQpCkzPPEPdn6TmpFxPqW3eeQjtyCig6pB7IyW0ppAZ0oXUz5vvl8gpHr1KlQ1jqkDrT0A_5Gs_w4Y7WrXcYtLxwV2Mxmz_xkYxvS37lhmHuZU5Mda9I7aFbol_Ndcb-qz_pDQzQkpsOC1wFAP"></div>
+          <div class="flex h-full flex-1 flex-col items-start justify-start">
+            <div class="flex w-full flex-row items-start justify-start gap-x-3">
+              <p class="text-white text-sm font-bold leading-normal tracking-[0.015em]">Ngozi Okeke</p>
+              <p class="text-[#9cabba] text-sm font-normal leading-normal">1 hour ago</p>
+            </div>
+            <p class="text-white text-sm font-normal leading-normal">I'm stuck in this traffic now. It's really bad.</p>
+          </div>
+        </div>
+        <div class="flex w-full flex-row items-start justify-start gap-3 p-4">
+          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0 cover-bg" data-bg="https://lh3.googleusercontent.com/aida-public/AB6AXuBuotJQE6QZvHqs56g6Gqq-uiHa_XydaJPhsKIw-AjI3FHrzc9OqR1ubVmkaHcTZOVrUHH2fXb1lEULF5BIo4x2CDdIApndG8brN1a3Okz8XGxzlWuF42YE4TTYrRDXWKIxoQZpTN7jHFkbnaZBf2mfDXYUNoHDRk0NrhIqet3tkqxj4jjJzVmT3hQdtGl2GqS3aUPIdBDiFBgw2z7pAF77DLQAizNj97s-e9aWnAQHKUGkPU-HqxPBP7WQykwjT1xMGG7Dqii4Bscv"></div>
+          <div class="flex h-full flex-1 flex-col items-start justify-start">
+            <div class="flex w-full flex-row items-start justify-start gap-x-3">
+              <p class="text-white text-sm font-bold leading-normal tracking-[0.015em]">Emeka Nwosu</p>
+              <p class="text-[#9cabba] text-sm font-normal leading-normal">2 hours ago</p>
+            </div>
+            <p class="text-white text-sm font-normal leading-normal">Accident near the bridge. Avoid this route if possible.</p>
+          </div>
+        </div>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Photos</h2>
+        <div class="flex w-full grow bg-[#111418] @container p-4">
+          <div class="w-full gap-1 overflow-hidden bg-[#111418] @[480px]:gap-2 aspect-[3/2] rounded-lg grid grid-cols-[2fr_1fr_1fr]">
+            <div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none row-span-2 cover-bg" data-bg="https://lh3.googleusercontent.com/aida-public/AB6AXuBzd4XRk16UpeoZ5-_ya8EO-dcA0J2fj6HtXd-1djbQu3LI1lpFkd1ZqhR0cT6eTbgHiLKhygYePpXZYQpbrqBTNwCwQy_9jt0Xeg39X1QxhwYHgaV7gGW1k95SrYxykC__sUH7RKDBDHnskVTSMWxKEMmsfWFJ2nTmCfR3Bn9mzvC875fpg_cNjr3F1G5crdZOerK6_zXcFySn3q_ExLGDX87mM7iSZt0i425NgGx3ZKM8mQFRUWyOepoxtk7SuBoI103bdgxLrYLD"></div>
+            <div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none col-span-2 row-span-2 cover-bg" data-bg="https://lh3.googleusercontent.com/aida-public/AB6AXuAOIoSlZhHKhjvb7MzI2b_vvcXEgDn7Pg-5uM8MRpuFGpoDWZTpS6JYggRnerJnpFzzlbgzgH4QzJMyFSTqTBN8zcO1DLUAW2nPdFyySTa_TQ6eY9dINBmhNau0By-YfTEyTmz-svF5L2u9INuFs9QVEp8cQcOa5-kRAhW2sW1pxTHSqegcqxQjRwUfAhSovPrvRDX2h7_AQP5ec2pfm5R0yENW1i4Q6r3P44hphkyOOBIAydahgxFitAUz8uVdl9H5YCZTlo-bcTkZ"></div>
+          </div>
+        </div>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Detours</h2>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2">
+          <div class="text-white flex items-center justify-center rounded-lg bg-[#283039] shrink-0 size-12" data-icon="MapPin" data-size="24px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"
+              ></path>
+            </svg>
+          </div>
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Alternative Route</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">Addis Ababa Road</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="relative flex h-auto min-h-screen w-full flex-col bg-[#111418] dark justify-between group/design-root overflow-x-hidden"
+      >
+                <path
+                  d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Map</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-white" href="#">
+            <div class="text-white flex h-8 items-center justify-center" data-icon="RoadHorizon" data-size="24px" data-weight="fill">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M239,188.08,173.68,72h58A8.17,8.17,0,0,0,240,64.53,8,8,0,0,0,232,56H24.27A8.17,8.17,0,0,0,16,63.47,8,8,0,0,0,24,72H82.32L17,188.08a8,8,0,0,0,1.17,9.43,8.24,8.24,0,0,0,6,2.49H116a4,4,0,0,0,4-4V176.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v20a4,4,0,0,0,4,4h91.77a8.24,8.24,0,0,0,6-2.49A8,8,0,0,0,239,188.08ZM136,140a8,8,0,0,1-16,0V124a8,8,0,0,1,16,0Zm0-52a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-white text-xs font-medium leading-normal tracking-[0.015em]">Road Details</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+            <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="FlagBanner" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M230.76,51.73A8,8,0,0,0,224,48H32a8,8,0,0,0-5.41,13.9l42.09,38.57-42.56,46.1A8,8,0,0,0,32,160H165.62l-28.84,60.56a8,8,0,1,0,14.44,6.88l80-168A8,8,0,0,0,230.76,51.73ZM173.23,144h-123l35.61-38.57a8,8,0,0,0-.47-11.33L52.57,64H211.33Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Report</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+            <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="Gear" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Settings</p>
+          </a>
+        </div>
+        <div class="h-5 bg-[#1b2127]"></div>
+      </div>
+    </div>
+  </body>
+</html>

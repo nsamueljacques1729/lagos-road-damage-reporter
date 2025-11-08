@@ -1,0 +1,202 @@
+<html lang="en">
+  <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Settings | Lagos Traffic Reporter</title>
+    <meta name="description" content="Customize your Lagos Traffic Reporter app settings and preferences">
+    <meta name="theme-color" content="#111418">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="assets/common.css">
+    <script src="assets/common.js"></script>
+    <style>
+      .card-shadow { box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px, rgba(0, 0, 0, 0.06) 0px 3px 1px; }
+    </style>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111418] dark justify-between group/design-root overflow-x-hidden">
+      <div>
+        <div class="flex items-center bg-[#111418] p-4 pb-2 justify-between">
+          <div class="text-white flex size-12 shrink-0 items-center" data-icon="ArrowLeft" data-size="24px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+            </svg>
+          </div>
+          <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Settings</h2>
+        </div>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Preferences</h2>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2 justify-between">
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Language</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">English</p>
+          </div>
+          <div class="shrink-0">
+            <div class="text-white flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2 justify-between">
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Units</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">Kilometers</p>
+          </div>
+          <div class="shrink-0">
+            <div class="text-white flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2 justify-between">
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Theme</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">Light</p>
+          </div>
+          <div class="shrink-0">
+            <div class="text-white flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Notifications</h2>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2 justify-between">
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Route Alerts</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">Receive alerts for traffic updates on your preferred routes</p>
+          </div>
+          <div class="shrink-0">
+            <label
+              class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#283039] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-[#0d80f2]"
+            >
+              <div class="h-full w-[27px] rounded-full bg-white card-shadow"></div>
+              <input type="checkbox" aria-label="Route alerts toggle" class="invisible absolute" />
+            </label>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2 justify-between">
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Road Closures</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">Get notified about road closures and major incidents</p>
+          </div>
+          <div class="shrink-0">
+            <label
+              class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#283039] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-[#0d80f2]"
+            >
+              <div class="h-full w-[27px] rounded-full bg-white card-shadow"></div>
+              <input type="checkbox" aria-label="Road closures toggle" class="invisible absolute" />
+            </label>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2 justify-between">
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Road Conditions</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">Receive alerts for specific road conditions like potholes or flooding</p>
+          </div>
+          <div class="shrink-0">
+            <label
+              class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-[#283039] p-0.5 has-[:checked]:justify-end has-[:checked]:bg-[#0d80f2]"
+            >
+              <div class="h-full w-[27px] rounded-full bg-white card-shadow"></div>
+              <input type="checkbox" aria-label="Road conditions toggle" class="invisible absolute" />
+            </label>
+          </div>
+        </div>
+        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Account</h2>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2 justify-between">
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Profile</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">Manage your profile information</p>
+          </div>
+          <div class="shrink-0">
+            <div class="text-white flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-[72px] py-2 justify-between">
+          <div class="flex flex-col justify-center">
+            <p class="text-white text-base font-medium leading-normal line-clamp-1">Legal</p>
+            <p class="text-[#9cabba] text-sm font-normal leading-normal line-clamp-2">View terms of service and privacy policy</p>
+          </div>
+          <div class="shrink-0">
+            <div class="text-white flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-[#111418] px-4 min-h-14 justify-between">
+          <p class="text-white text-base font-normal leading-normal flex-1 truncate">Log Out</p>
+          <div class="shrink-0">
+            <div class="text-white flex size-7 items-center justify-center" data-icon="CaretRight" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex gap-2 border-t border-[#283039] bg-[#1b2127] px-4 pb-3 pt-2">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+            <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="MapTrifold" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Map</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+            <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="ListBullets" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Road Details</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+            <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="Plus" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+              </svg>
+            </div>
+            <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Report</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-white" href="#">
+            <div class="text-white flex h-8 items-center justify-center" data-icon="Gear" data-size="24px" data-weight="fill">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M216,130.16q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.6,107.6,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.29,107.29,0,0,0-26.25-10.86,8,8,0,0,0-7.06,1.48L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.6,107.6,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06ZM128,168a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-white text-xs font-medium leading-normal tracking-[0.015em]">Settings</p>
+          </a>
+        </div>
+        <div class="h-5 bg-[#1b2127]"></div>
+      </div>
+    </div>
+  </body>
+</html>

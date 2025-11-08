@@ -1,0 +1,151 @@
+<html lang="en">
+  <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Traffic Map | Lagos Traffic Reporter</title>
+    <meta name="description" content="Real-time traffic map showing road conditions, incidents and congestion in Lagos">
+    <meta name="theme-color" content="#111418">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="assets/common.css">
+    <script src="assets/common.js"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111418] dark justify-between group/design-root overflow-x-hidden">
+      <div>
+        <div class="flex items-center bg-[#111418] p-4 pb-2 justify-between">
+          <button aria-label="Go back" title="Go back" class="text-white flex size-12 shrink-0 items-center" data-icon="ArrowLeft" data-size="24px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+            </svg>
+          </button>
+          <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Map</h2>
+        </div>
+        <div class="px-4 py-3">
+          <label class="flex flex-col min-w-40 h-12 w-full">
+            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+              <div
+                class="text-[#9cabba] flex border-none bg-[#283039] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                data-icon="MagnifyingGlass"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                </svg>
+              </div>
+              <input
+                placeholder="Search for a location"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#283039] focus:border-none h-full placeholder:text-[#9cabba] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                value=""
+              />
+            </div>
+          </label>
+        </div>
+        <div class="flex gap-3 p-3 overflow-x-hidden">
+          <button aria-label="Road condition filter" title="Road condition filter" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#283039] pl-4 pr-2">
+            <p class="text-white text-sm font-medium leading-normal">Road Condition</p>
+            <div class="text-white" data-icon="CaretDown" data-size="20px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+              </svg>
+            </div>
+          </button>
+          <button aria-label="Traffic filter" title="Traffic filter" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#283039] pl-4 pr-2">
+            <p class="text-white text-sm font-medium leading-normal">Traffic</p>
+            <div class="text-white" data-icon="CaretDown" data-size="20px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+              </svg>
+            </div>
+          </button>
+          <button aria-label="Incidents filter" title="Incidents filter" class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#283039] pl-4 pr-2">
+            <p class="text-white text-sm font-medium leading-normal">Incidents</p>
+            <div class="text-white" data-icon="CaretDown" data-size="20px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+        <div class="@container flex flex-col h-full flex-1">
+          <div class="flex flex-1 flex-col @[480px]:px-4 @[480px]:py-3">
+            <div class="bg-cover bg-center flex min-h-[320px] flex-1 flex-col justify-between px-4 pb-4 pt-5 @[480px]:rounded-lg @[480px]:px-8 @[480px]:pb-6 @[480px]:pt-8 cover-bg" data-bg="https://lh3.googleusercontent.com/aida-public/AB6AXuD69lLZOB0J9i4YbwRiL3VRNji1zV09GrE7Nh8xRxw8NJrSLtY7PPF4cdr16TFpO3U2dcpqGWtkilcI0uUT1w9aI7V64XPbr3rsoSRM5bvx9uxw2kOuNGtpOwyvYJPGeFPBKooMk00WFc7koqfqEdivBfnz8rDgHNJ9HlawbxoUEExG_8szHsKZJacUvRs3fMlcF60RWidEpeFtML49z6WUVH0K0k7Zyszncegn5Vei_ohCZtIfdmjpK958Ni3bbnJLZn6MtHDOLITS">
+              <label class="flex flex-col min-w-40 h-12">
+                <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                  <div
+                    class="text-[#9cabba] flex border-none bg-[#1b2127] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                    data-icon="MagnifyingGlass"
+                    data-size="24px"
+                    data-weight="regular"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    placeholder="Search for a location"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#1b2127] focus:border-none h-full placeholder:text-[#9cabba] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                    value=""
+                  />
+                </div>
+              </label>
+              <div class="flex flex-col items-end gap-3">
+                <div class="flex flex-col gap-0.5">
+                  <button aria-label="Zoom in" class="flex size-10 items-center justify-center rounded-t-lg bg-[#1b2127] shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
+                    <div class="text-white" data-icon="Plus" data-size="24px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+                      </svg>
+                    </div>
+                  </button>
+                  <button aria-label="Zoom out" class="flex size-10 items-center justify-center rounded-b-lg bg-[#1b2127] shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
+                    <div class="text-white" data-icon="Minus" data-size="24px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+                <button aria-label="Recenter map" class="flex size-10 items-center justify-center rounded-lg bg-[#1b2127] shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
+                  <div class="text-white" data-icon="NavigationArrow" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" transform="scale(-1, 1)">
+                      <path
+                        d="M229.33,98.21,53.41,33l-.16-.05A16,16,0,0,0,32.9,53.25a1,1,0,0,0,.05.16L98.21,229.33A15.77,15.77,0,0,0,113.28,240h.3a15.77,15.77,0,0,0,15-11.29l23.56-76.56,76.56-23.56a16,16,0,0,0,.62-30.38ZM224,113.3l-76.56,23.56a16,16,0,0,0-10.58,10.58L113.3,224h0l-.06-.17L48,48l175.82,65.22.16.06Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end overflow-hidden px-5 pb-5">
+          <button
+            aria-label="Create new report"
+            title="Create new report"
+            class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 bg-[#0d80f2] text-white text-base font-bold leading-normal tracking-[0.015em] min-w-0 px-2 gap-4 pl-4 pr-6"
+          >
+            <div class="text-white" data-icon="Plus" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
+                <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div><div class="h-5 bg-[#111418]"></div></div>
+    </div>
+  </body>
+</html>
