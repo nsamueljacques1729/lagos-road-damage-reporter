@@ -57,25 +57,33 @@ function initializePageTransitions() {
             // Parse new content
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
-            const newScreen = doc.querySelector('.screen');
+            let newScreen = doc.querySelector('.screen');
+
+            // Fallback: try common main selectors if .screen is missing
+            if (!newScreen) {
+                newScreen = doc.querySelector('main') || doc.querySelector('div[role="main"]') || doc.querySelector('body > div');
+            }
 
             if (!newScreen) throw new Error('No screen element found in new page');
 
             // Update title
-            document.title = doc.title;
+            document.title = doc.title || document.title;
+
+            // Import node into current document to avoid cross-document issues
+            const imported = document.importNode(newScreen, true);
 
             // Replace current screen
             if (currentScreen) {
-                currentScreen.replaceWith(newScreen);
+                currentScreen.replaceWith(imported);
             } else {
-                document.body.appendChild(newScreen);
+                document.body.appendChild(imported);
             }
-            
+
             // Update history
             window.history.pushState({ path: href }, '', href);
 
             // Initialize new screen
-            currentScreen = newScreen;
+            currentScreen = imported;
             initializeContentTransitions();
             handleBackgroundImages();
 
@@ -85,7 +93,7 @@ function initializePageTransitions() {
             });
 
             // Wait for enter animation
-            await waitForTransition(newScreen);
+            await waitForTransition(currentScreen);
 
         } finally {
             // Hide overlay
@@ -153,7 +161,52 @@ function handleBackgroundImages() {
 // Utility: Wait for transition
 function waitForTransition(element) {
     return new Promise(resolve => {
-        const duration = parseFloat(getComputedStyle(element).transitionDuration) * 1000;
-        setTimeout(resolve, duration);
+        try {
+            if (!element) return resolve();
+
+            const style = getComputedStyle(element);
+            // transitionDuration / transitionDelay may be comma-separated lists
+            const durParts = (style.transitionDuration || '0s').split(',').map(s => s.trim());
+            const delayParts = (style.transitionDelay || '0s').split(',').map(s => s.trim());
+
+            const toMs = s => {
+                if (!s) return 0;
+                // supports 'ms' and 's'
+                if (s.endsWith('ms')) return parseFloat(s);
+                if (s.endsWith('s')) return parseFloat(s) * 1000;
+                return parseFloat(s) || 0;
+            };
+
+            const totals = durParts.map((d, i) => toMs(d) + toMs(delayParts[i] || delayParts[0] || '0s'));
+            const max = Math.max(0, ...totals);
+            const timeout = Math.ceil(max) + 80; // small safety margin
+
+            if (timeout === 80) {
+                // No transition duration -> resolve next frame
+                requestAnimationFrame(resolve);
+                return;
+            }
+
+            let resolved = false;
+            const onEnd = (ev) => {
+                if (ev && ev.target !== element) return; // ignore child transitions
+                if (resolved) return;
+                resolved = true;
+                element.removeEventListener('transitionend', onEnd);
+                clearTimeout(timer);
+                resolve();
+            };
+
+            element.addEventListener('transitionend', onEnd);
+            const timer = setTimeout(() => {
+                if (resolved) return;
+                resolved = true;
+                element.removeEventListener('transitionend', onEnd);
+                resolve();
+            }, timeout);
+        } catch (err) {
+            // In case of any error, don't block navigation
+            resolve();
+        }
     });
 }
