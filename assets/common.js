@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeContentTransitions();
     // Handle background image loading
     handleBackgroundImages();
+    // Ensure there's an initial screen and mark it active for transitions
+    ensureInitialScreen();
+
+    // Inject flow navigation buttons (Prev / Next) to help move between pages
+    injectFlowButtons();
 });
 
 // Initialize page transition system
@@ -231,4 +236,92 @@ function waitForTransition(element) {
             resolve();
         }
     });
+}
+
+// Ensure there is a `.screen` element on initial load and mark it active
+function ensureInitialScreen() {
+    let screen = document.querySelector('.screen');
+    if (!screen) {
+        // Try common main selectors
+        screen = document.querySelector('main') || document.querySelector('div[role="main"]') || document.querySelector('body > div');
+        if (screen) {
+            screen.classList.add('screen');
+        }
+    }
+
+    if (screen && !screen.classList.contains('active')) {
+        // Small timeout to allow other scripts/styles to initialize
+        requestAnimationFrame(() => screen.classList.add('active'));
+    }
+}
+
+// Inject floating Prev/Next buttons according to a simple app flow
+function injectFlowButtons() {
+    // Define the linear app flow (first -> next -> ...)
+    const flow = [
+        'welcome home screen.html',
+        'map dashboard.html',
+        'personalize routes.html',
+        'fuel station finder.html',
+        'report road condition.html',
+        'road details.html',
+        'settings.html'
+    ];
+
+    const current = decodeURIComponent(window.location.pathname.split('/').pop() || '');
+    const idx = flow.indexOf(current);
+
+    // If current page isn't in flow, don't show buttons
+    if (idx === -1) return;
+
+    const container = document.createElement('div');
+    container.setAttribute('aria-hidden', 'false');
+    container.style.position = 'fixed';
+    container.style.right = '18px';
+    container.style.bottom = '18px';
+    container.style.zIndex = '10010';
+    container.style.display = 'flex';
+    container.style.flexDirection = 'column';
+    container.style.gap = '8px';
+
+    const makeButton = (label, href, title) => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.title = title || label;
+        a.className = 'flow-nav-btn';
+        a.style.display = 'inline-flex';
+        a.style.alignItems = 'center';
+        a.style.justifyContent = 'center';
+        a.style.width = '44px';
+        a.style.height = '44px';
+        a.style.borderRadius = '10px';
+        a.style.background = 'rgba(10,12,16,0.7)';
+        a.style.color = 'white';
+        a.style.textDecoration = 'none';
+        a.style.backdropFilter = 'blur(6px)';
+        a.style.boxShadow = '0 6px 14px rgba(0,0,0,0.35)';
+        a.style.border = '1px solid rgba(255,255,255,0.04)';
+        a.style.fontSize = '18px';
+        a.setAttribute('aria-label', label);
+        a.innerText = label;
+        return a;
+    };
+
+    if (idx > 0) {
+        const prev = makeButton('\u2190', flow[idx - 1], 'Previous');
+        container.appendChild(prev);
+    }
+    if (idx < flow.length - 1) {
+        const next = makeButton('\u2192', flow[idx + 1], 'Next');
+        container.appendChild(next);
+    }
+
+    document.body.appendChild(container);
+
+    // Add a small CSS rule for hover/focus states to match site styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .flow-nav-btn:hover, .flow-nav-btn:focus { transform: translateY(-2px); background: rgba(6,182,212,0.95); color: #071226; }
+    `;
+    document.head.appendChild(style);
 }
