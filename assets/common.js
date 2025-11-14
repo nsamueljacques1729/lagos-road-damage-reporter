@@ -28,9 +28,29 @@ function initializePageTransitions() {
         const link = e.target.closest('a[href]');
         if (!link) return;
 
-        // Only handle internal navigation
-        const href = link.getAttribute('href');
-        if (href.startsWith('http') || href.startsWith('//') || href.startsWith('#')) return;
+        // Read raw href attribute (may be '#', relative path, or full URL)
+        let href = link.getAttribute('href') || '';
+
+        // If href is exactly '#', try to map the link to a proper route using data or visible label
+        if (href === '#') {
+            const mapped = mapPlaceholderLinkToRoute(link);
+            if (mapped) {
+                href = mapped;
+            } else {
+                // If it's a fragment anchor or intentionally empty, allow default behavior
+                return;
+            }
+        }
+
+        // If it's an in-page fragment like '#section' and that element exists, allow default
+        if (href.startsWith('#')) {
+            const targetId = href.slice(1);
+            if (document.getElementById(targetId)) return;
+            // otherwise fall through
+        }
+
+        // Ignore external links and protocol-relative
+        if (href.startsWith('http') || href.startsWith('//')) return;
 
         e.preventDefault();
         try {
@@ -324,4 +344,36 @@ function injectFlowButtons() {
         .flow-nav-btn:hover, .flow-nav-btn:focus { transform: translateY(-2px); background: rgba(6,182,212,0.95); color: #071226; }
     `;
     document.head.appendChild(style);
+}
+
+// Map placeholder anchors (href="#") to real routes using heuristics
+function mapPlaceholderLinkToRoute(link) {
+    // If the element declares an explicit data-route, use it
+    const dataRoute = link.dataset.route;
+    if (dataRoute) return dataRoute;
+
+    // Use aria-label or title if available
+    const label = (link.getAttribute('aria-label') || link.title || link.textContent || '').trim().toLowerCase();
+    if (!label) return null;
+
+    // Heuristic mapping - extend this as needed
+    const map = {
+        'map': 'map dashboard.html',
+        'fuel': 'fuel station finder.html',
+        'routes': 'personalize routes.html',
+        'report': 'report road condition.html',
+        'settings': 'settings.html',
+        'home': 'welcome home screen.html',
+        'start now': 'map dashboard.html',
+        'i have an account': 'map dashboard.html'
+    };
+
+    // try direct match
+    if (map[label]) return map[label];
+
+    // try first word
+    const first = label.split(/[\s\-]+/)[0];
+    if (map[first]) return map[first];
+
+    return null;
 }
