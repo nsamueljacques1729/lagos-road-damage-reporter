@@ -24,16 +24,15 @@
       body { font-family: Inter, "Noto Sans", sans-serif; }
     </style>
     <!-- Page transitions: entrance + exit animations and simple internal-link router -->
-    <link rel="stylesheet" href="assets/common.css">
-    <script src="assets/common.js"></script>
-    </script>
+  <link rel="stylesheet" href="assets/common.css">
+  <script src="assets/common.js"></script>
   </head>
   <body>
-    <div
-      class="relative flex h-auto min-h-screen w-full flex-col bg-[#111418] dark justify-between group/design-root overflow-x-hidden"
-    >
-      <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111418] dark justify-between group/design-root overflow-x-hidden">
-            </svg>
+    <div class="screen relative flex h-auto min-h-screen w-full flex-col bg-[#111418] dark justify-between group/design-root overflow-x-hidden">
+      <div class="page-content">
+        <div class="flex items-center bg-[#111418] p-4 pb-2 justify-between">
+          <div class="text-white flex size-12 shrink-0 items-center" data-icon="ArrowLeft" data-size="24px" data-weight="regular">
+            <!-- back icon -->
           </div>
           <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">My Routes</h2>
         </div>
@@ -80,7 +79,7 @@
       </div>
       <div>
         <div class="flex gap-2 border-t border-[#283039] bg-[#1b2127] px-4 pb-3 pt-2">
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="map dashboard.html">
             <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="MapTrifold" data-size="24px" data-weight="regular">
               <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                 <path
@@ -90,7 +89,7 @@
             </div>
             <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Map</p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-white" href="#">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-white" href="personalize routes.html">
             <div class="text-white flex h-8 items-center justify-center" data-icon="Path" data-size="24px" data-weight="fill">
               <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                 <path
@@ -100,7 +99,7 @@
             </div>
             <p class="text-white text-xs font-medium leading-normal tracking-[0.015em]">Routes</p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="report road condition.html">
             <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="Flag" data-size="24px" data-weight="regular">
               <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                 <path
@@ -110,7 +109,7 @@
             </div>
             <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Report</p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="settings.html">
             <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="Gear" data-size="24px" data-weight="regular">
               <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                 <path

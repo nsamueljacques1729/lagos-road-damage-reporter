@@ -18,6 +18,8 @@ function initializePageTransitions() {
     // Create overlay for transitions
     const overlay = document.createElement('div');
     overlay.className = 'page-transition-overlay';
+    // Ensure cross-browser backdrop filter availability
+    overlay.style.webkitBackdropFilter = 'blur(var(--blur-strength))';
     document.body.appendChild(overlay);
 
     // Current active screen
@@ -318,7 +320,8 @@ function injectFlowButtons() {
         a.style.background = 'rgba(10,12,16,0.7)';
         a.style.color = 'white';
         a.style.textDecoration = 'none';
-        a.style.backdropFilter = 'blur(6px)';
+    a.style.webkitBackdropFilter = 'blur(6px)';
+    a.style.backdropFilter = 'blur(6px)';
         a.style.boxShadow = '0 6px 14px rgba(0,0,0,0.35)';
         a.style.border = '1px solid rgba(255,255,255,0.04)';
         a.style.fontSize = '18px';

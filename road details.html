@@ -19,31 +19,16 @@
       body { font-family: Inter, "Noto Sans", sans-serif; }
       .cover-bg { background-size: cover; background-position: center; background-repeat: no-repeat; }
     </style>
-    <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('[data-bg]').forEach(function(el){var u=el.getAttribute('data-bg'); if(u) el.style.backgroundImage='url(' + u + ')';});});</script>
-    <!-- Page transitions: entrance + exit animations and simple internal-link router -->
+  <!-- data-bg initialization handled centrally in assets/common.js -->
+    <!-- Page transitions: centralized via assets/common.js -->
     <style>
       .screen { opacity: 0; transform: translateY(8px); transition: opacity .36s ease, transform .36s ease; }
       .screen.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
       .screen.exiting { opacity: 0; transform: translateY(-8px); transition-duration: .28s; pointer-events: none; }
     </style>
-    <script>
-      document.addEventListener('DOMContentLoaded', function(){
-        var screen = document.querySelector('main') || document.querySelector('div[role="main"]') || document.querySelector('body > div');
-        if(!screen) return;
-        screen.classList.add('screen');
-        requestAnimationFrame(function(){ screen.classList.add('active'); });
-        document.querySelectorAll('a[href]').forEach(function(a){
-          var href = a.getAttribute('href');
-          if(!href) return;
-          if(href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-          var isInternal = href.endsWith('.html') || (!href.includes('://') && !href.startsWith('http'));
-          if(!isInternal) return;
-          a.addEventListener('click', function(e){ e.preventDefault(); screen.classList.remove('active'); screen.classList.add('exiting'); setTimeout(function(){ window.location = href; }, 260); });
-        });
-      });
-    </script>
   </head>
-        <div class="flex px-4 py-3">
+  <body>
+    <div class="screen flex px-4 py-3">
           <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg object-cover cover-bg" data-bg="https://lh3.googleusercontent.com/aida-public/AB6AXuAevgvMXb2Y4vDsFuU_Nf-gO87NJTj3bTnQt_i-FAevzVfaffdYQZKVMidhxjWNl13kqZirPwFnOVknDWK8aA1OKSH1fOwpjlXJsFh2i99c79gUCoSfNX9VVSzipVcG_0EM-9P1X1uV-JSuhqMJkQuSzxXNsxTToKQt4wQHKwkAVo7uYNtzN6nLjMmpyDkHMCbMYgLKzYstX6CL_YTQBZ_vIifwjNBh9xL9mQTPPeErVOUeK4NMREL0dh06mpcZeaPMMdyP2B-cZli0"></div>
         </div>
         <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Road Conditions</h2>
@@ -136,7 +121,7 @@
             </div>
             <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Map</p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-white" href="#">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-white" href="map dashboard.html">
             <div class="text-white flex h-8 items-center justify-center" data-icon="RoadHorizon" data-size="24px" data-weight="fill">
               <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                 <path
@@ -146,7 +131,7 @@
             </div>
             <p class="text-white text-xs font-medium leading-normal tracking-[0.015em]">Road Details</p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="emergency contacts and services.html">
             <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="FlagBanner" data-size="24px" data-weight="regular">
               <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                 <path
@@ -156,7 +141,7 @@
             </div>
             <p class="text-[#9cabba] text-xs font-medium leading-normal tracking-[0.015em]">Report</p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="#">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#9cabba]" href="report road condition.html">
             <div class="text-[#9cabba] flex h-8 items-center justify-center" data-icon="Gear" data-size="24px" data-weight="regular">
               <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                 <path
